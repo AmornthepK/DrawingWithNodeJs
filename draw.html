@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script type="text/javascript" src="utilities.js"></script>
-    <meta charset="UTF-8" />
-    <title>Drawing App</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <style>
-      body {
-        padding-top: 40px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="jumbotron">
-        <h1>Drawing App by Au</h1>
-        <input type="button" onclick="myfunction()" value="Display" />
-        <canvas class="myCanvas">
-          <p>Add suitable fallback here.</p>
-        </canvas>
-      </div>
+
+<head>
+  <!-- <script type="text/javascript" src="utilities.js"></script> -->
+  <meta charset="UTF-8" />
+  <title>Drawing App V.1.0</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="drawBox.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Drawing App by Au</h1>
+
+    <div class="toolbar">
+      <input type="color" aria-label="select pen color" />
+      <input type="range" min="2" max="50" value="10" aria-label="select pen size" /><span class="output">30</span>
+      <button>Clear canvas</button>
     </div>
-  </body>
+
+    <canvas class="drawBoard">
+      <p>Add suitable fallback here.</p>
+    </canvas>
+
+    <script>
+      $.getScript('utilities.js', function () {
+        console.log('Script loaded.');
+      });
+    </script>
+  </div>
+</body>
+
 </html>
