@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <script type="text/javascript" src="utilities.js"></script> -->
+  <meta charset="UTF-8" />
+  <title>Drawing App V.1.0</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="drawBox.css" />
+</head>
+
+<body>
+  <div class="box">
+    <h1>Drawing App by Au</h1>
+
+    <div id="coords">
+      X: <span id="posX">Xready</span>
+      Y: <span id="posY">Yready</span>
+      <button id="clearBtn">Clear canvas</button>
+    </div>
+    <div class="toolbar">
+      <input type="color" aria-label="select pen color" />
+      <input type="range" min="1" max="20" value="5" aria-label="select pen size" /><span id="output">5</span>
+    </div>
+
+    <div id="container">
+      <canvas id="drawBoard"></canvas>
+    </div>
+
+
+    <script>
+      $.getScript('utilities2.js', function () {
+        console.log('Script loaded.');
+      });
+    </script>
+  </div>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
   "name": "drawingwithnodejs",
   "version": "1.0.0",
   "description": "Drawing app with node.js by Au",
-  "main": "index.js",
+  "main": "drawB-1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
