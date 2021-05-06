@@ -6,11 +6,11 @@ const port = process.env.PORT || 8881;
 
 
 app.get("/",function(request,response){
-    response.send("Hello World 2.2!")
+    response.send("Hello World 3!")
 })
 
 app.get("/draw", function (request, response) {
-    response.sendFile(path.join(__dirname, '/draw2.html'));
+    response.sendFile(path.join(__dirname, '/main.html'));
 });
 
 app.use(express.static(path.join(__dirname, 'utility2')));

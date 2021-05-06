@@ -1,6 +1,6 @@
-* {
+/* * {
   -webkit-user-select:none;
-}
+} */
 body {
   margin:0;
   padding:0;
@@ -15,7 +15,7 @@ body {
 #container {
   position:relative;
   max-height: 800px;
-  max-width: 600px;
+  max-width: 800px;
   overflow: scroll;
   margin: 10px;
 }
@@ -23,9 +23,12 @@ body {
   background:rgb(0, 255, 0);
 }
 #clearBtn {
-  float:right;
+  /* float:right; */
 }
-.tp{
+.toolbar {
+  background:rgb(77, 255, 255);;
+}
+/* .tp{
   visibility:hidden;
   position:absolute;
   width:30px;
@@ -33,4 +36,4 @@ body {
   background:#999;
   -webkit-border-radius:15px;
   -webkit-box-shadow:inset white 0 0 15px 5px, white 0 0 2px 2px;
-}
+} */

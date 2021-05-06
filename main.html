@@ -16,13 +16,16 @@
     <h1>Drawing App by Au</h1>
 
     <div id="coords">
-      X: <span id="posX">Xready</span>
-      Y: <span id="posY">Yready</span>
-      <button id="clearBtn">Clear canvas</button>
+      Drawing Position
+      X: <span id="posX"></span>
+      Y: <span id="posY"></span>
     </div>
     <div class="toolbar">
       <input type="color" aria-label="select pen color" />
       <input type="range" min="1" max="20" value="5" aria-label="select pen size" /><span id="output">5</span>
+      <button id="penBtn">Pen</button>
+      <button id="eraserBtn">Eraser</button>
+      <button id="clearBtn">Clear canvas</button>
     </div>
 
     <div id="container">
