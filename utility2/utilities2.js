@@ -1,6 +1,8 @@
 console.log("Start draw box.");
+
 var drawBoard, ctx, target, inProgress, cp1x, cp1y, cp2x, cp2y, skip1, skip2, clearBtn, colorPicker, sizePicker;
 var erasing = false;
+var container;
 
 function $(e) {
   return document.getElementById(e);
@@ -17,6 +19,13 @@ function draw(e) {
   ctx.lineJoin = 'round';
   ctx.lineWidth = sizePicker.value;
   ctx.strokeStyle = colorPicker.value;
+
+  if(erasing == true){
+    ctx.globalCompositeOperation="destination-out";
+  }else{
+    ctx.globalCompositeOperation="source-over";
+  }
+
   if (!inProgress) {
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -82,7 +91,6 @@ function captureTouch() {
     return false;
   }, false);
   drawBoard.addEventListener('mousedown', function () {
-    drawBoard.addEventListener('mousedown', point, false);
     drawBoard.addEventListener('mousemove', draw, false);
   }, false);
   drawBoard.addEventListener('mouseup', function () {
@@ -94,16 +102,35 @@ function captureTouch() {
 
 }
 
-function init() {
-  drawBoard = $("drawBoard");
-  // drawBoard.width = document.body.clientWidth;
-  // drawBoard.height = window.innerHeight;
-  drawBoard.width = 1000;
-  drawBoard.height = 1000;
+function prepImg() {
+  ctx = drawBoard.getContext('2d');
+  const img = new Image();
+  img.src = "./defaultImg.png";
+  img.onload = () => {
+    // console.log("w = " + img.width);
+    // console.log("w = " + img.height);
+    drawBoard.width = img.width;
+    drawBoard.height = img.height;
+    bkImageURL = "url(defaultImg.png)"
+    drawBoard.style.backgroundImage = bkImageURL;
+    // ctx.drawImage(img,0,0)
+  }
+}
 
+function init() {
+
+  penBtn = $("penBtn");
+  eraserBtn = $("eraserBtn");
   clearBtn = $("clearBtn");
 
-  ctx = drawBoard.getContext('2d');
+  container = $("container");
+  drawBoard = $("drawBoard");
+  drawBoard.width = 1000;
+  drawBoard.height = 1000;
+  // drawBoard.width = document.body.clientWidth;
+  // drawBoard.height = window.innerHeight;
+
+  prepImg();
   target = {
     x: $('posX'),
     y: $('posY')
@@ -113,9 +140,18 @@ function init() {
     e.preventDefault();
   }, false);
 
+  penBtn.onclick = function () {
+    erasing = false;
+    $("eraserStat").innerHTML = "False";
+  }
+
+  eraserBtn.onclick = function () {
+    erasing = true;
+    $("eraserStat").innerHTML = "True";
+  }
+
   clearBtn.onclick = function () {
-    ctx.fillStyle = "rgb(0, 255, 0)";
-    ctx.fillRect(0, 0, drawBoard.width, drawBoard.height);
+    ctx.clearRect(0 ,0 ,drawBoard.width, drawBoard.height);
   };
 
   colorPicker = document.querySelector('input[type="color"');
@@ -124,11 +160,7 @@ function init() {
     $("output").textContent = sizePicker.value;
   };
 
-  // sizePicker.addEventListener('oninput', function() {
-  //     output.textContent = sizePicker.value;
-  // }, false)
 }
 
 
 init();
-      //document.addEventListener('DOMContentLoaded', init, false);

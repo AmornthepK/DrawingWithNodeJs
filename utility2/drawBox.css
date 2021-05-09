@@ -15,12 +15,23 @@ body {
 #container {
   position:relative;
   max-height: 800px;
-  max-width: 800px;
+  max-width: 1200px;
   overflow: scroll;
   margin: 10px;
 }
+/* #background {
+  background:rgb(72, 255, 0);
+  position: absolute; 
+  left: 0; 
+  top: 0;
+  z-index: 0;
+} */
 #drawBoard {
-  background:rgb(0, 255, 0);
+  background:rgba(255, 255, 255, 0);
+  /* position: absolute;  */
+  /* left: 0; 
+  top: 0; */
+  /* z-index: 1; */
 }
 #clearBtn {
   /* float:right; */
